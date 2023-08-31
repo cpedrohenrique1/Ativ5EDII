@@ -10,15 +10,12 @@
 
 class TratarArquivo{
 public:
-    void operator()(QTextStream *in, Professor *professor, int *tamanho_vetor){
+    void operator()(QTextStream *in, Professor **professor, int &tamanho_vetor){
         if (!in){
             throw QString("Arquivo nao aberto");
         }
-        if (professor){
-            delete professor;
-        }
-        if (tamanho_vetor){
-            delete tamanho_vetor;
+        if (*professor){
+            delete *professor;
         }
         std::list<Professor> lista_professor;
         while (!in->atEnd())
@@ -93,11 +90,11 @@ public:
             if (lista_professor.empty()){
                 throw QString("Nao foi possivel ler o arquivo corretamente");
             }
-            tamanho_vetor = new int(lista_professor.size());
-            professor = new Professor[lista_professor.size()];
+            tamanho_vetor = lista_professor.size();
+            *professor = new Professor[lista_professor.size()];
             int indice = 0;
             for (Professor prof : lista_professor){
-                professor[indice] = prof;
+                *professor[indice] = prof;
                 indice++;
             }
         } catch (std::bad_alloc &e) {

@@ -9,15 +9,12 @@
 
 class AbrirArquivo{
 public:
-    QString operator()(QWidget *parent, Professor *professor, int *tamanho_vetor){
+    QString operator()(QWidget *parent, Professor **professor, int &tamanho_vetor){
         if (!parent){
             throw QString("Ocorreu um erro desconhecido");
         }
-        if (professor){
-            delete professor;
-        }
-        if (tamanho_vetor){
-            delete tamanho_vetor;
+        if (*professor){
+            delete *professor;
         }
         QString endereco_arquivo = QFileDialog::getOpenFileName(parent, "Abrir Arquivo", QDir::homePath(), "*.csv");
         QFile arquivo(endereco_arquivo);
