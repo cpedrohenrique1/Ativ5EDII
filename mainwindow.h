@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "professor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,5 +21,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Professor *professor;
+    int tamanho_vetor = 0;
+
 };
 #endif // MAINWINDOW_H

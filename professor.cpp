@@ -5,6 +5,11 @@ int Professor::getMatricula() const
     return matricula;
 }
 
+QString Professor::getMatriculaQString() const
+{
+    return QString::number(matricula);
+}
+
 void Professor::setMatricula(int newMatricula)
 {
     matricula = newMatricula;
@@ -50,7 +55,10 @@ void Professor::setTipo_de_contrato(const QString &newTipo_de_contrato)
     tipo_de_contrato = newTipo_de_contrato;
 }
 
-Professor::Professor()
-{
-
-}
+Professor::Professor():
+    matricula(0),
+    nome(""),
+    departamento(""),
+    titulacao(""),
+    tipo_de_contrato("")
+{}

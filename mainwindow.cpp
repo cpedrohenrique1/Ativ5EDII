@@ -5,7 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+      professor(0)
 {
     ui->setupUi(this);
     ui->tableWidget->setColumnCount(5);
@@ -22,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete professor;
     delete ui;
 }
 
@@ -29,11 +31,18 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_executar_clicked()
 {
     try {
-//        AbrirArquivo AbrirArquivo;
-        if (ui->lineEdit->text().isEmpty()){
-//            ui->lineEdit->setText(AbrirArquivo(this));
+        AbrirArquivo AbrirArquivo;
+        if (ui->lineEdit->text().isEmpty() || tamanho_vetor == 0){
+            ui->lineEdit->setText(AbrirArquivo(this, professor, &tamanho_vetor));
         }
-
+        for (int i = 0; i < tamanho_vetor; i++){
+            ui->tableWidget->insertRow(0);
+            ui->tableWidget->setItem(0,0, new QTableWidgetItem(QString::number(i)));
+            ui->tableWidget->setItem(0,1, new QTableWidgetItem(QString::number(i)));
+            ui->tableWidget->setItem(0,2, new QTableWidgetItem(QString::number(i)));
+            ui->tableWidget->setItem(0,3, new QTableWidgetItem(QString::number(i)));
+            ui->tableWidget->setItem(0,4, new QTableWidgetItem(QString::number(i)));
+        }
     } catch (QString &e) {
         QMessageBox::critical(this,"Erro", e);
     }

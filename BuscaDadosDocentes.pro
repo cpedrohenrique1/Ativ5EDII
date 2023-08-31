@@ -15,6 +15,7 @@ SOURCES += \
 
 HEADERS += \
     AbrirArquivo.h \
+    TratarArquivo.h \
     mainwindow.h \
     professor.h
 
