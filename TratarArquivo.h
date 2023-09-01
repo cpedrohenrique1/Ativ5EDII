@@ -7,97 +7,131 @@
 #include "QTextStream"
 #include "professor.h"
 #include <list>
+#include <iostream>
 
-class TratarArquivo{
+class TratarArquivo
+{
 public:
-    void operator()(QTextStream *in, Professor **professor, int &tamanho_vetor){
-        if (!in){
-            throw QString("Arquivo nao aberto");
-        }
-        if (*professor){
-            delete *professor;
+    void operator()(QTextStream &in, Professor **professor, int &tamanho_vetor)
+    {
+        if (*professor != 0)
+        {
+            delete[] (*professor);
+            *professor = 0;
         }
         std::list<Professor> lista_professor;
-        while (!in->atEnd())
+        int numero_linha = 0;
+        while (!in.atEnd())
         {
-            try {
-                QString linha = in->readLine();
-                QStringList parts = linha.split(";");
-                int i = 0;
-                bool erro = false;
-                Professor *newProf = new Professor;
-                for (QString part : parts)
+            numero_linha++;
+            QString linha = in.readLine();
+            QStringList parts = linha.split(";");
+            bool erro = false;
+            if ((linha.isEmpty() || linha.isNull()) && !erro)
+            {
+                erro = true;
+            }
+            if (parts.size() != 5 && !erro)
+            {
+                erro = true;
+            }
+            if (!erro)
+            {
+                int indice_part = 0;
+                for (QString teste_error : parts)
                 {
-                    if (i == 0){
-                        for (int indice = 0; indice < part.size(); indice++){
-                            if (part[indice] < '0' || part[indice] > '9'){
-                                erro = true;
-                                indice = part.size();
-                            }
-                        }
-                    }else{
-                        for (int indice = 0; indice < part.size(); indice++){
-                            if (part[indice] >= '0' && part[indice] <= '9'){
-                                erro = true;
-                                indice = part.size();
-                            }
-                        }
-                    }
-                    if (part.isEmpty()){
+                    if ((teste_error.isEmpty() || teste_error.isNull()) && !erro)
+                    {
                         erro = true;
                     }
-                    if (!erro){
-                        switch (i)
-                        {
-                        case 0:
-                        {
-                            newProf->setMatricula(part.toInt());
-                            break;
-                        }
-                        case 1:
-                        {
-                            newProf->setNome(part);
-                            break;
-                        }
-                        case 2:
-                        {
-                            newProf->setDepartamento(part);
-                            break;
-                        }
-                        case 3:
-                        {
-                            newProf->setTitulacao(part);
-                            break;
-                        }
-                        case 4:
-                        {
-                            newProf->setTipo_de_contrato(part);
-                            break;
-                        }
+                    int letra = 0;
+                    for (int i = 0; i < teste_error.size() && !erro && letra == 0; i++){
+                        if (teste_error[i] != ' '){
+                            letra++;
                         }
                     }
-                    else{
-    //                        escrever no arquivo a linha, o numero da linha e o erro
+                    if (letra == 0 && !erro){
+                        erro = true;
                     }
-                    ++i;
+                    if (indice_part == 0 && !erro)
+                    {
+                        for (int i = 0; i < teste_error.size() && !erro; i++)
+                        {
+                            if (teste_error[i] < '0' || teste_error[i] > '9')
+                            {
+                                erro = true;
+                            }
+                        }
+                    }
+                    if (indice_part > 0 && !erro)
+                    {
+                        for (int i = 0; i < teste_error.size() && !erro; i++)
+                        {
+                            if (teste_error[i] >= '0' && teste_error[i] <= '9')
+                            {
+                                erro = true;
+                            }
+                        }
+                    }
+                    indice_part++;
                 }
-                lista_professor.push_back(*newProf);
-            } catch (std::bad_alloc &e) {
-                throw QString("Nao foi possivel alocar memoria");
+            }
+            if (erro){
+                // escrever um arquivo log com informaçoes sobre o erro, a linha que deu erro com o numero da linha
+            }else{
+                Professor newProf;
+                int i = 0;
+                for (QString part : parts)
+                {
+                    switch (i)
+                    {
+                    case 0:
+                    {
+                        newProf.setMatricula(part.toInt());
+                        break;
+                    }
+                    case 1:
+                    {
+                        newProf.setNome(part);
+                        break;
+                    }
+                    case 2:
+                    {
+                        newProf.setDepartamento(part);
+                        break;
+                    }
+                    case 3:
+                    {
+                        newProf.setTitulacao(part);
+                        break;
+                    }
+                    case 4:
+                    {
+                        newProf.setTipo_de_contrato(part);
+                        break;
+                    }
+                    }
+                    i++;
+                }
+                lista_professor.push_back(newProf);
             }
         }
-        try {
-            if (lista_professor.empty()){
-                throw QString("Nao foi possivel ler o arquivo corretamente");
-            }
+        if (lista_professor.empty())
+        {
+            throw QString("Nao foi possivel ler o arquivo corretamente");
+        }
+        try{
             tamanho_vetor = lista_professor.size();
-            *professor = new Professor[lista_professor.size()];
+            *professor = new Professor[tamanho_vetor];
             int indice = 0;
-            for (Professor prof : lista_professor){
-                *professor[indice] = prof;
+            for (Professor var : lista_professor)
+            {
+                (*professor)[indice] = var;
                 indice++;
             }
-        } catch (std::bad_alloc &e) {
+        }
+        catch (std::bad_alloc &e)
+        {
             throw QString("Nao foi possivel alocar memoria");
         }
     }
