@@ -34,7 +34,7 @@ void MainWindow::on_pushButton_executar_clicked()
 {
     try {
         AbrirArquivo abrir_arquivo;
-        if (ui->lineEdit->text().isEmpty() || tamanho_vetor == 0 || professor == 0){
+        if (ui->lineEdit->text().isEmpty() || ui->lineEdit->text().isNull() || tamanho_vetor == 0 || professor == 0){
             ui->lineEdit->setText(abrir_arquivo(this, &professor, tamanho_vetor));
         }
     //   for (int i = 0; i < 5; i++){

@@ -5,9 +5,10 @@
 #include "QFile"
 #include "QFileDialog"
 #include "QTextStream"
-#include "professor.h"
 #include <list>
 #include <iostream>
+#include "QCoreApplication"
+#include "QDir"
 
 class TratarArquivo
 {
@@ -78,6 +79,20 @@ public:
             }
             if (erro){
                 // escrever um arquivo log com informaçoes sobre o erro, a linha que deu erro com o numero da linha
+                // criar pasta separada para guardar os logs
+                QString logDir = QCoreApplication::applicationDirPath() + "/logs";
+                QDir dir;
+                if (!dir.exists(logDir)){
+                    dir.mkpath(logDir);
+                } 
+                QFile logfile(logDir + "/log.txt");
+                if (!logfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)){
+                    throw QString("Nao foi possivel abrir o arquivo log");
+                }
+                QTextStream out(&logfile);
+                out << linha << "\n";
+                out << "Erro na linha " << numero_linha << " do arquivo" << "\n\n";
+                logfile.close();
             }else{
                 Professor newProf;
                 int i = 0;
