@@ -1,0 +1,14 @@
+#ifndef OPERARTABELA_H
+#define OPERARTABELA_H
+
+#include "QTableWidget"
+#include "professor.h"
+
+class OperarTabela{
+public:
+    void start(QTableWidget *parent);
+    void limpar(QTableWidget *parent);
+    void popular(QTableWidget *parent, int tamanho_vetor, Professor *prof);
+};
+
+#endif // OPERARTABELA_H

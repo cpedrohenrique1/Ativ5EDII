@@ -19,6 +19,8 @@ public:
 private slots:
     void on_pushButton_executar_clicked();
 
+    void on_pushButton_abrirArquivo_clicked();
+
 private:
     Ui::MainWindow *ui;
     Professor *professor;

@@ -13,7 +13,6 @@ private:
 public:
     Professor();
     int getMatricula() const;
-    QString getMatriculaQString() const;
     void setMatricula(int newMatricula);
     const QString &getNome() const;
     void setNome(const QString &newNome);

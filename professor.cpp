@@ -5,11 +5,6 @@ int Professor::getMatricula() const
     return matricula;
 }
 
-QString Professor::getMatriculaQString() const
-{
-    return QString::number(matricula);
-}
-
 void Professor::setMatricula(int newMatricula)
 {
     matricula = newMatricula;
