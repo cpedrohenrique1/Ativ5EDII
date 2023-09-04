@@ -6,6 +6,7 @@
 class BuscarDados
 {
 public:
+    BuscarDados(QTableWidget *parent, QString CurrentText);
     void operator()(QTableWidget *parent, QString CurrentText);
 };
 

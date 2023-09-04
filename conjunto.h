@@ -7,6 +7,7 @@ class Conjunto
 {
 private:
     Professor *professorSelectionSort;
+    int tamanho_vetor;
 public:
     Conjunto(Professor *arrayProfessor, int tamanho_vetor);
     void selectionSort();

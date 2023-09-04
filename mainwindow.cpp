@@ -29,9 +29,11 @@ void MainWindow::on_pushButton_executar_clicked()
 {
     try {
         QString input_dado = ui->lineEdit->text();
-        if (ui->lineEdit->text().isEmpty() || ui->lineEdit->text().isNull()){
+        if (input_dado.isEmpty() || input_dado.isNull()){
             throw QString("Deve ser inserido algum dado para buscar");
         }
+        OperarTabela tabela;
+        tabela.popular(ui->tableWidget, tamanho_vetor, professor);
     } catch (QString &e) {
         QMessageBox::critical(this,"Erro", e);
     }
@@ -41,8 +43,7 @@ void MainWindow::on_pushButton_abrirArquivo_clicked()
 {
     try {
         AbrirArquivo abrir_arquivo(this, &professor, tamanho_vetor);
-        OperarTabela tabela;
-        tabela.popular(ui->tableWidget, tamanho_vetor, professor);
+        on_pushButton_executar_clicked();
     }catch (QString &e){
         QMessageBox::critical(this,"Erro", e);
     }
