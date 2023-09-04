@@ -9,8 +9,11 @@ private:
     Professor *professorSelectionSort;
     int tamanho_vetor;
 public:
-    Conjunto(Professor *arrayProfessor, int tamanho_vetor);
+    Conjunto(Professor *arrayProfessor, int &tamanho_vetor);
+    ~Conjunto();
     void selectionSort();
+    Professor *getProfessorSelectionSort() const;
+    int getTamanhoVetor() const;
 };
 
 #endif // CONJUNTO_H

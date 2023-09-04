@@ -20,9 +20,9 @@ void OperarTabela::limpar(QTableWidget *parent)
     start(parent);
 }
 
-void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *prof)
+void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *array_professor)
 {
-    if (!prof || tamanho_vetor == 0)
+    if (!array_professor || tamanho_vetor == 0)
     {
         throw QString("Erro, Vetor de professores nao existe");
     }
@@ -30,10 +30,24 @@ void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *p
     for (int i = 0; i < tamanho_vetor; ++i)
     {
         parent->insertRow(i);
-        parent->setItem(i, 0, new QTableWidgetItem(QString::number(prof[i].getMatricula())));
-        parent->setItem(i, 1, new QTableWidgetItem(prof[i].getNome()));
-        parent->setItem(i, 2, new QTableWidgetItem(prof[i].getDepartamento()));
-        parent->setItem(i, 3, new QTableWidgetItem(prof[i].getTitulacao()));
-        parent->setItem(i, 4, new QTableWidgetItem(prof[i].getTipo_de_contrato()));
+        parent->setItem(i, 0, new QTableWidgetItem(QString::number(array_professor[i].getMatricula())));
+        parent->setItem(i, 1, new QTableWidgetItem(array_professor[i].getNome()));
+        parent->setItem(i, 2, new QTableWidgetItem(array_professor[i].getDepartamento()));
+        parent->setItem(i, 3, new QTableWidgetItem(array_professor[i].getTitulacao()));
+        parent->setItem(i, 4, new QTableWidgetItem(array_professor[i].getTipo_de_contrato()));
     }
+}
+
+void OperarTabela::buscaElemento(QTableWidget *parent, Professor *professor){
+    if (!professor){
+        throw QString("Erro, elemento professor nao existe");
+    }
+    limpar(parent);
+
+    parent->insertRow(0);
+    parent->setItem(0, 0, new QTableWidgetItem(QString::number(professor->getMatricula())));
+    parent->setItem(0, 1, new QTableWidgetItem(professor->getNome()));
+    parent->setItem(0, 2, new QTableWidgetItem(professor->getDepartamento()));
+    parent->setItem(0, 3, new QTableWidgetItem(professor->getTitulacao()));
+    parent->setItem(0, 4, new QTableWidgetItem(professor->getTipo_de_contrato()));
 }

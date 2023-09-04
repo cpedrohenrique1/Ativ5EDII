@@ -23,8 +23,7 @@ public:
         {
             throw QString("Erro ao abrir o arquivo");
         }
-        TratarArquivo tratar_arquivo;
-        tratar_arquivo(in, professor, tamanho_vetor);
+        TratarArquivo tratar_arquivo(in, professor, tamanho_vetor);
         arquivo.close();
     }
 };

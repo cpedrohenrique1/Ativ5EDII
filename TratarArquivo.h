@@ -16,7 +16,7 @@ public:
     //  testar erro de arquivo
     bool erro(QString &linha, QStringList &parts) const;
     // adicionar os dados do arquivo na lista ou no arquivo log
-    void operator()(QTextStream &in, Professor **professor, int &tamanho_vetor);
+    TratarArquivo(QTextStream &in, Professor **professor, int &tamanho_vetor);
 };
 
 #endif // TRATARARQUIVO_H

@@ -54,7 +54,7 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
     return false;
 }
 
-void TratarArquivo::operator()(QTextStream &in, Professor **professor, int &tamanho_vetor)
+TratarArquivo::TratarArquivo(QTextStream &in, Professor **professor, int &tamanho_vetor)
 {
     if ((*professor) != 0)
     {

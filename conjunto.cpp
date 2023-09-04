@@ -1,6 +1,15 @@
 #include "conjunto.h"
 
-Conjunto::Conjunto(Professor *arrayProfessor, int tamanho_vetor):
+Professor *Conjunto::getProfessorSelectionSort() const
+{
+    return professorSelectionSort;
+}
+
+int Conjunto::getTamanhoVetor() const{
+    return tamanho_vetor;
+}
+
+Conjunto::Conjunto(Professor *arrayProfessor, int &tamanho_vetor):
     professorSelectionSort(0),
     tamanho_vetor(tamanho_vetor)
 {
@@ -15,7 +24,7 @@ Conjunto::Conjunto(Professor *arrayProfessor, int tamanho_vetor):
             professorSelectionSort[i] = arrayProfessor[i];
         }
     }
-    catch(std::bad_alloc)
+    catch(std::bad_alloc &e)
     {
         throw QString("Erro ao alocar memoria");
     }
@@ -37,4 +46,10 @@ void Conjunto::selectionSort()
     //     professorSelectionSort[indice] = professorSelectionSort[min_idc];
     //     professorSelectionSort[min_idc] = temp;
     // }
+}
+
+Conjunto::~Conjunto(){
+    if (professorSelectionSort){
+        delete[] professorSelectionSort;
+    }
 }
