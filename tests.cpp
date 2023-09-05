@@ -1,23 +1,22 @@
 #include <iostream>
 
-void function2(int **var){
-    for (int i = 0; i < 10; i++){
-        std::cout << (*var)[i] << std::endl;
+class teste{
+private:
+    int *array;
+public:
+    teste():
+        array(new int[10]){
+            for(int i = 0; i < 10; ++i){
+                array[i] = i;
+            }
     }
-}
-
-void function(int **var){
-    // var cria um ponteiro para um array de tamanho 10
-    *var = new int[10];
-    for (int i = 0; i < 10; i++){
-        (*var)[i] = i;
+    int *getArray() const{
+        return array;
     }
-    function2(var);
-}
+};
 
 int main(){
-    int *var;
-    function(&var);
-    std::cout << var << std::endl;
+    teste t;
+    std::cout << t.getArray() << std::endl;
     return 0;
 }

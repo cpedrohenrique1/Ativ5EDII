@@ -33,27 +33,6 @@ tamanho_vetor(tamanho_vetor)
     }
 }
 
-void Conjunto::selectionSort(bool (*compare)(Professor p1, Professor p2))
-{
-    if (!professorSelectionSort || tamanho_vetor == 0)
-    {
-        throw QString("Array nao alocado");
-    }
-    for (int indice = 0; indice < tamanho_vetor - 1; ++indice)
-    {
-        int min_idc = indice;
-        for (int i = indice + 1; i < tamanho_vetor; ++i)
-        {
-            if (compare(professorSelectionSort[i], professorSelectionSort[min_idc]))
-            {
-                min_idc = i;
-            }
-        }
-        Professor temp = professorSelectionSort[indice];
-        professorSelectionSort[indice] = professorSelectionSort[min_idc];
-        professorSelectionSort[min_idc] = temp;
-    }
-}
 
 Conjunto::~Conjunto()
 {
@@ -61,29 +40,4 @@ Conjunto::~Conjunto()
     {
         delete[] professorSelectionSort;
     }
-}
-
-bool Conjunto::compareMatricula(Professor p1, Professor p2)
-{
-    return p1.getMatricula() < p2.getMatricula();
-}
-
-bool Conjunto::compareNome(Professor p1, Professor p2)
-{
-    return p1.getNome() < p2.getNome();
-}
-
-bool Conjunto::compareDepartamento(Professor p1, Professor p2)
-{
-    return p1.getDepartamento() < p2.getDepartamento();
-}
-
-bool Conjunto::compareTitulacao(Professor p1, Professor p2)
-{
-    return p1.getTitulacao() < p2.getTitulacao();
-}
-
-bool Conjunto::compareTipoContrato(Professor p1, Professor p2)
-{
-    return p1.getTipo_de_contrato() < p2.getTipo_de_contrato();
 }

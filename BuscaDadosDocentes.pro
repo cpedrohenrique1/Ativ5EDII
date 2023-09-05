@@ -15,15 +15,31 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     operartabela.cpp \
+    ordenacao.cpp \
     professor.cpp
 
 HEADERS += \
     AbrirArquivo.h \
+    BuscaBinaria.h \
+    BuscaBinariaMatricula.h \
+    BuscaBinariaNome.h \
+    BuscaSequencial.h \
+    BuscaSequencialMatricula.h \
+    BuscaSequencialNome.h \
+    ProfessorComparator.h \
+    ProfessorComparatorDepartamentoNome.h \
+    ProfessorComparatorDepartamentoTipoContratoNome.h \
+    ProfessorComparatorDepartamentoTitulacaoNome.h \
+    ProfessorComparatorMatricula.h \
+    ProfessorComparatorNome.h \
+    ProfessorComparatorTipoContratoNome.h \
+    ProfessorComparatorTitulacaoNome.h \
     TratarArquivo.h \
     buscardados.h \
     conjunto.h \
     mainwindow.h \
     operartabela.h \
+    ordenacao.h \
     professor.h
 
 FORMS += \

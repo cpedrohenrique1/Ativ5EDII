@@ -24,7 +24,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Professor *professor;
-    int tamanho_vetor = 0;
+    int tamanho_vetor;
 
 };
 #endif // MAINWINDOW_H

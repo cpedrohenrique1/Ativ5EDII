@@ -1,0 +1,4 @@
+#ifndef BUSCABINARIA_H
+#define BUSCABINARIA_H
+
+#endif // BUSCABINARIA_H
