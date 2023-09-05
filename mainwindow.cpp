@@ -29,9 +29,6 @@ void MainWindow::on_pushButton_executar_clicked()
 {
     try {
         QString input_dado = ui->lineEdit->text();
-        if (input_dado.isEmpty() || input_dado.isNull()){
-            
-        }
         OperarTabela tabela;
         tabela.popular(ui->tableWidget, tamanho_vetor, professor);
     } catch (QString &e) {

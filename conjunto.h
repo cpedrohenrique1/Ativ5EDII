@@ -11,7 +11,12 @@ private:
 public:
     Conjunto(Professor *arrayProfessor, int &tamanho_vetor);
     ~Conjunto();
-    void selectionSort();
+    void selectionSort(bool (*compare)(Professor p1, Professor p2));
+    bool compareMatricula(Professor p1, Professor p2);
+    bool compareNome(Professor p1, Professor p2);
+    bool compareDepartamento(Professor p1, Professor p2);
+    bool compareTitulacao(Professor p1, Professor p2);
+    bool compareTipoContrato(Professor p1, Professor p2);
     Professor *getProfessorSelectionSort() const;
     int getTamanhoVetor() const;
 };

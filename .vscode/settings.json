@@ -63,6 +63,17 @@
     "initializer_list": "cpp",
     "utility": "cpp",
     "ostream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "*.tcc": "cpp",
+    "compare": "cpp",
+    "optional": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "new": "cpp",
+    "numeric": "cpp",
+    "cmath": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "variant": "cpp"
   }
 }
