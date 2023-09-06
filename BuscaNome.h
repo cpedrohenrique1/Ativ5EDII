@@ -1,11 +1,12 @@
-#ifndef BUSCABINARIANOME_H
-#define BUSCABINARIANOME_H
+#ifndef BUSCANOME_H
+#define BUSCANOME_H
 
 #include "busca.h"
 
-class BuscaBinariaNome : public Busca {
+class BuscaNome : public Busca {
 public:
     int metodoOrdenacao(const Professor p, QString entrada) override{
+        // getConjunto().selectionSort;
         if (p.getNome() > entrada){
             return 1;
         }
@@ -17,4 +18,4 @@ public:
     }
 };
 
-#endif // BUSCABINARIANOME_H
+#endif // BUSCANOME_H

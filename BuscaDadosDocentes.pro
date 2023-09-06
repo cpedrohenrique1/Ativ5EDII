@@ -21,9 +21,8 @@ SOURCES += \
 
 HEADERS += \
     AbrirArquivo.h \
-    BuscaBinaria.h \
-    BuscaBinariaMatricula.h \
-    BuscaBinariaNome.h \
+    BuscaMatricula.h \
+    BuscaNome.h \
     BuscaSequencial.h \
     BuscaSequencialMatricula.h \
     BuscaSequencialNome.h \

@@ -1,12 +1,11 @@
-#ifndef BUSCABINARIAMATRICULA_H
-#define BUSCABINARIAMATRICULA_H
+#ifndef BUSCAMATRICULA_H
+#define BUSCAMATRICULA_H
 
 #include "busca.h"
 
-class BuscaBinariaMatricula : public Busca {
+class BuscaMatricula : public Busca {
     public:
         int metodoOrdenacao(const Professor p, QString entrada) override{
-            getConjunto()->selectionSort()
             if (p.getMatricula() > entrada.toInt()){
                 return 1;
             }
@@ -18,4 +17,4 @@ class BuscaBinariaMatricula : public Busca {
         }
 };
 
-#endif // BUSCABINARIAMATRICULA_H
+#endif // BUSCAMATRICULA_H

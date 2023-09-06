@@ -11,7 +11,7 @@ private:
 public:
     Conjunto(Professor *arrayProfessor, int &tamanho_vetor);
     ~Conjunto();
-    virtual int metodoOrdenacao
+//    virtual int metodoOrdenacao
     // template <typename T>
     // void selectionSort(T compare){
     //     if (!professorSelectionSort || tamanho_vetor == 0)

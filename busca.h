@@ -7,15 +7,14 @@
 class Busca
 {
 private:
-    Conjunto *conjunto;
+    Professor *array;
 public:
-    Busca(Conjunto &conj){
-        conjunto = &conj;
+    Busca(Professor *arrayProfessor){
+        array = arrayProfessor;
     }
     ~Busca(){
-        delete conjunto;
+        delete array;
     }
-    Conjunto *getConjunto();
     virtual int metodoOrdenacao(const Professor p, QString entrada) = 0;
     int BuscaSequencial(QString entrada);
     int BuscaBinaria(QString entrada);

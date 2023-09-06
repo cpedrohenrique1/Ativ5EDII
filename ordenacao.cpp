@@ -13,33 +13,27 @@ Ordenacao::Ordenacao(QTableWidget *parent, QString ordem_ordenacao, Professor *a
         throw QString ("Vetor de professor nao criado");
     }
     Conjunto conj(array_professor,tamanho_vetor);
-    OperarTabela ot;
+    OperarTabela ot(parent);
     if (ordem_ordenacao == "Matricula"){
         conj.selectionSort(ProfessorComparatorMatricula());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else if (ordem_ordenacao == "Nome"){
         conj.selectionSort(ProfessorComparatorNome());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else if (ordem_ordenacao == "Departamento - Nome"){
         conj.selectionSort(Professro);
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else if (ordem_ordenacao == "Titulação - Nome"){
         conj.selectionSort(ProfessorComparatorMatricula());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else if (ordem_ordenacao == "Tipo de contrato - Nome"){
         conj.selectionSort(ProfessorComparatorMatricula());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else if (ordem_ordenacao == "Departamento - Titulação - Nome"){
         conj.selectionSort(ProfessorComparatorMatricula());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
     else{
         conj.selectionSort(ProfessorComparatorMatricula());
-        ot.popular(parent, tamanho_vetor, conj.getProfessorSelectionSort());
     }
+    ot.popular(tamanho_vetor, conj.getProfessorSelectionSort());
 }
