@@ -5,11 +5,15 @@
 
 class BuscaSequencialMatricula : public BuscaSequencial{
 public:
-    bool igual(const Professor p, QString entrada) override{
-        return p.getMatricula() == entrada;
-    }
-    bool maiorque(const Professor p, QString entrada) override{
-        return p.getMatricula() > entrada;
+    int metodoComparacao(const Professor p, QString entrada) override {
+        if (p.getMatricula() == entrada.toInt()){
+            return 0;
+        }
+        else if(p.getMatricula() > entrada.toInt()){
+            return 1;
+        }else{
+            return -1;
+        }
     }
 };
 

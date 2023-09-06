@@ -4,8 +4,7 @@
 
 class BuscaSequencial{
 public:
-    virtual bool igual(const Professor p, QString entrada) = 0;
-    virtual bool maiorque(const Professor p, QString entrada) = 0;
+    virtual int metodoComparacao(const Professor p, QString entrada) = 0;
 };
 
 
