@@ -6,7 +6,23 @@
 
 class BuscaBinaria
 {
+    private:
+        Conjunto *conj;
 public:
+    BuscaBinaria(Professor *vetor, int tamanho_vetor):
+    {
+        if (!vetor || tamanho_vetor == 0){
+            throw QString("Vetor de professor nao criado");
+        }
+        try
+        {
+            conj = new Conjunto(vetor, tamanho_vetor);
+        }
+        catch(std::bad_alloc& e)
+        {
+            throw QString("Nao foi possivel alocar memoria para buscar");
+        }
+    }
     virtual int metodoOrdenacao(Professor p1, QString entrada) = 0;
     
     Professor *ElementoBuscado(Conjunto &conj, QString entrada)

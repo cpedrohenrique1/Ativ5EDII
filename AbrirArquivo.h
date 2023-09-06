@@ -17,7 +17,7 @@ public:
         {
             throw QString("Erro ao abrir o arquivo");
         }
-        if (*professor)
+        if ((*professor))
         {
             delete[] (*professor);
             *professor = 0;

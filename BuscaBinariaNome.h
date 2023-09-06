@@ -1,21 +1,20 @@
 #ifndef BUSCABINARIANOME_H
 #define BUSCABINARIANOME_H
 
-#include "BuscaBinaria.h"
+#include "busca.h"
 
-class BuscaBinariaNome : public BuscaBinaria {
-    public:
-        int metodoOrdenacao (Professor p, QString entrada) override {
-            if (p.getNome() == entrada){
-                return 0;
-            }
-            else if (p.getNome() > entrada){
-                return 1;
-            }
-            else{
-                return -1;
-            }
+class BuscaBinariaNome : public Busca {
+public:
+    int metodoOrdenacao(const Professor p, QString entrada) override{
+        if (p.getNome() > entrada){
+            return 1;
         }
+        else if(p.getNome() < entrada){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
 };
 
 #endif // BUSCABINARIANOME_H

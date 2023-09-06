@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     TratarArquivo.cpp \
+    busca.cpp \
     buscardados.cpp \
     conjunto.cpp \
     main.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     ProfessorComparatorTipoContratoNome.h \
     ProfessorComparatorTitulacaoNome.h \
     TratarArquivo.h \
+    busca.h \
     buscardados.h \
     conjunto.h \
     mainwindow.h \

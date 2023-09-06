@@ -1,19 +1,19 @@
 #ifndef BUSCABINARIAMATRICULA_H
 #define BUSCABINARIAMATRICULA_H
 
-#include "BuscaBinaria.h"
+#include "busca.h"
 
-class BuscaBinariaMatricula : public BuscaBinaria {
+class BuscaBinariaMatricula : public Busca {
     public:
-        int metodoOrdenacao (Professor p, QString entrada) override {
-            if (p.getMatricula() == entrada.toInt()){
-                return 0;
-            }
-            else if (p.getMatricula() > entrada.toInt()){
+        int metodoOrdenacao(const Professor p, QString entrada) override{
+            getConjunto()->selectionSort()
+            if (p.getMatricula() > entrada.toInt()){
                 return 1;
             }
-            else{
+            else if(p.getMatricula() < entrada.toInt()){
                 return -1;
+            }else{
+                return 0;
             }
         }
 };

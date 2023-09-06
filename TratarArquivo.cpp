@@ -22,7 +22,7 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
         {
             if (teste_error[i] != ' ')
             {
-                letra++;
+                ++letra;
             }
         }
         if (letra == 0)
@@ -49,14 +49,14 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
                 }
             }
         }
-        indice_part++;
+        ++indice_part;
     }
     return false;
 }
 
 TratarArquivo::TratarArquivo(QTextStream &in, Professor **professor, int &tamanho_vetor)
 {
-    if ((*professor) != 0)
+    if ((*professor))
     {
         delete[] (*professor);
         (*professor) = 0;
@@ -66,7 +66,7 @@ TratarArquivo::TratarArquivo(QTextStream &in, Professor **professor, int &tamanh
     int numero_linha = 0;
     while (!in.atEnd())
     {
-        numero_linha++;
+        ++numero_linha;
         QString linha = in.readLine();
         QStringList parts = linha.split(";");
         if (erro(linha, parts))
@@ -112,7 +112,7 @@ TratarArquivo::TratarArquivo(QTextStream &in, Professor **professor, int &tamanh
         for (Professor temp : lista_professor)
         {
             (*professor)[indice] = temp;
-            indice++;
+            ++indice;
         }
     }
     catch (std::bad_alloc &e)

@@ -13,9 +13,7 @@
 class TratarArquivo
 {
 public:
-    //  testar erro de arquivo
     bool erro(QString &linha, QStringList &parts) const;
-    // adicionar os dados do arquivo na lista ou no arquivo log
     TratarArquivo(QTextStream &in, Professor **professor, int &tamanho_vetor);
 };
 
