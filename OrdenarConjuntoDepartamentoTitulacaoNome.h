@@ -1,12 +1,11 @@
-#ifndef PROFESSORCOMPARATORDEPARTAMENTOTITULACAONOME_H
-#define PROFESSORCOMPARATORDEPARTAMENTOTITULACAONOME_H
+#ifndef ORDENARCONJUNTODEPARTAMENTOTITULACAONOME_H_
+#define ORDENARCONJUNTODEPARTAMENTOTITULACAONOME_H_
 
-#include "ProfessorComparator.h"
+#include "conjunto.h"
 
-class ProfessorComparatorDepartamentoTitulacaoNome : public ProfessorComparator
-{
+class OrdenarConjuntoDepartamentoTitulacaoNome : public Conjunto{
 public:
-    bool operator()(Professor& p1, Professor& p2) override {
+    bool metodoOrdenacao(Professor p1, Professor p2) override{
         if (p1.getDepartamento() < p2.getDepartamento()){
             return true;
         }
@@ -22,4 +21,4 @@ public:
     }
 };
 
-#endif // PROFESSORCOMPARATORDEPARTAMENTO_H
+#endif

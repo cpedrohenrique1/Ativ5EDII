@@ -4,12 +4,7 @@
 #include "conjunto.h"
 
 class BuscaSequencial{
-private:
-    Conjunto conj;
 public:
-    BuscaSequencial(Conjunto& conj){
-        this->conj = conj;
-    }
     virtual int metodoComparacao(const Professor p, QString entrada) = 0;
 };
 

@@ -26,14 +26,13 @@ HEADERS += \
     BuscaSequencial.h \
     BuscaSequencialMatricula.h \
     BuscaSequencialNome.h \
-    ProfessorComparator.h \
-    ProfessorComparatorDepartamentoNome.h \
-    ProfessorComparatorDepartamentoTipoContratoNome.h \
-    ProfessorComparatorDepartamentoTitulacaoNome.h \
-    ProfessorComparatorMatricula.h \
-    ProfessorComparatorNome.h \
-    ProfessorComparatorTipoContratoNome.h \
-    ProfessorComparatorTitulacaoNome.h \
+    OrdenarConjuntoDepartamentoNome.h \
+    OrdenarConjuntoDepartamentoTipoContratoNome.h \
+    OrdenarConjuntoDepartamentoTitulacaoNome.h \
+    OrdenarConjuntoMatricula.h \
+    OrdenarConjuntoNome.h \
+    OrdenarConjuntoTipoContratoNome.h \
+    OrdenarConjuntoTitulacaoNome.h \
     TratarArquivo.h \
     busca.h \
     buscardados.h \

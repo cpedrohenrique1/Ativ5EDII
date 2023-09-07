@@ -1,39 +1,36 @@
 #include "busca.h"
 
-int Busca::BuscaSequencial(QString entrada){
-    if (!conjunto->getProfessorSelectionSort() || conjunto->getTamanhoVetor() == 0 || !conjunto){
+int Busca::BuscaSequencial(Professor *array, int tamanho_vetor, QString entrada){
+    if (!array || tamanho_vetor == 0){
         throw QString("Array nao criado");
     }
-    for (int i = 0; i < conjunto->getTamanhoVetor(); i++){
-        if (metodoOrdenacao(conjunto->getProfessorSelectionSort()[i], entrada) == 0){
+    for (int i = 0; i < tamanho_vetor; i++){
+        if (metodoOrdenacao(array[i], entrada) == 0){
             return i;
         }
-        if (metodoOrdenacao(conjunto->getProfessorSelectionSort()[i], entrada) > 0){
+        if (metodoOrdenacao(array[i], entrada) > 0){
             return -1;
         }
     }
     return -1;
 }
 
-int Busca::BuscaBinaria(QString entrada){
-    if (conjunto->getProfessorSelectionSort() || conjunto->getTamanhoVetor() == 0 || !conjunto){
+int Busca::BuscaBinaria(Professor *array, int tamanho_vetor, QString entrada){
+    if (!array || tamanho_vetor == 0){
         throw QString("Array nao criado");
     }
     int inicio = 0;
-    int fim = conjunto->getTamanhoVetor() - 1;
+    int fim = tamanho_vetor - 1;
     while (inicio <= fim){
         int meio = (inicio + fim)/2;
-        if (metodoOrdenacao(conjunto->getProfessorSelectionSort()[meio], entrada) == 0){
+        if (metodoOrdenacao(array[meio], entrada) == 0){
             return meio;
         }
-        if (metodoOrdenacao(conjunto->getProfessorSelectionSort()[meio], entrada) < 0){
+        if (metodoOrdenacao(array[meio], entrada) < 0){
             inicio = meio + 1;
         }else{
             fim = meio - 1;
         }
     }
     return -1;
-}
-Conjunto *Busca::getConjunto(){
-    return conjunto;
 }

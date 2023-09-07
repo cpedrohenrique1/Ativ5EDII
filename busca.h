@@ -6,18 +6,10 @@
 
 class Busca
 {
-private:
-    Professor *array;
 public:
-    Busca(Professor *arrayProfessor){
-        array = arrayProfessor;
-    }
-    ~Busca(){
-        delete array;
-    }
     virtual int metodoOrdenacao(const Professor p, QString entrada) = 0;
-    int BuscaSequencial(QString entrada);
-    int BuscaBinaria(QString entrada);
+    int BuscaSequencial(Professor *array, int tamanho_vetor, QString entrada);
+    int BuscaBinaria(Professor *array, int tamanho_vetor, QString entrada);
 };
 
 #endif // BUSCA_H

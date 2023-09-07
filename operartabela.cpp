@@ -1,19 +1,6 @@
 #include "operartabela.h"
 
-OperarTabela::OperarTabela(QTableWidget*parent):
-    parent(0)
-{
-    if (parent){
-        this->parent = parent;
-    }else{
-        throw QString("Nao foi possivel localizar a tabela");
-    }
-}
-OperarTabela::~OperarTabela(){
-    delete parent;
-}
-
-void OperarTabela::start()
+void OperarTabela::start(QTableWidget *parent)
 {
     if (!parent){
         throw QString("Tabela nao criada");
@@ -29,17 +16,17 @@ void OperarTabela::start()
     parent->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
-void OperarTabela::limpar()
+void OperarTabela::limpar(QTableWidget *parent)
 {
     if (!parent){
         throw QString("Tabela nao criada");
     }
     parent->setRowCount(0);
     parent->clearContents();
-    start();
+   start(parent);
 }
 
-void OperarTabela::popular(int tamanho_vetor, Professor *array_professor)
+void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *array_professor)
 {
     if (!parent){
         throw QString("Tabela nao criada");
@@ -48,7 +35,7 @@ void OperarTabela::popular(int tamanho_vetor, Professor *array_professor)
     {
         throw QString("Erro, Vetor de professores nao existe");
     }
-    limpar();
+   limpar(parent);
     for (int i = 0; i < tamanho_vetor; ++i)
     {
         parent->insertRow(i);
@@ -60,14 +47,14 @@ void OperarTabela::popular(int tamanho_vetor, Professor *array_professor)
     }
 }
 
-void OperarTabela::buscaElemento(Professor *professor){
+void OperarTabela::buscaElemento(QTableWidget *parent, Professor *professor){
     if (!parent){
         throw QString("Tabela nao criada");
     }
     if (!professor){
         throw QString("Erro, elemento professor nao existe");
     }
-    limpar();
+    limpar(parent);
 
     parent->insertRow(0);
     parent->setItem(0, 0, new QTableWidgetItem(QString::number(professor->getMatricula())));

@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
       tamanho_vetor(0)
 {
     ui->setupUi(this);
-    OperarTabela tabela(ui->tableWidget);
-    tabela.start();
+    OperarTabela tabela;
+    tabela.start(ui->tableWidget);
 }
 
 MainWindow::~MainWindow()
