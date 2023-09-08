@@ -38,12 +38,14 @@ BuscarDados::BuscarDados(QTableWidget *parent, QString current_text, QString ent
         temp = OrdenarConjuntoMatricula().SelectionSort(array_professor, tamanho_vetor);
         indice = BuscaMatricula().BuscaBinaria(temp, tamanho_vetor, entrada);
     }
+
     if (indice == -1){
         ot.limpar(parent);
     }
     else{
         ot.buscaElemento(parent, temp[indice]);
     }
+    
     if (temp)
     {
         delete[] temp;
