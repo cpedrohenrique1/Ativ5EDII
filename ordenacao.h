@@ -2,8 +2,6 @@
 #define ORDENACAO_H
 
 #include "professor.h"
-#include "conjunto.h"
-#include "operartabela.h"
 #include "QTableWidget"
 
 class Ordenacao

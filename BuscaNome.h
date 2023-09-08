@@ -5,7 +5,7 @@
 
 class BuscaNome : public Busca {
 public:
-    int metodoOrdenacao(const Professor p, QString entrada) override{
+    int metodoOrdenacao(const Professor& p, QString& entrada) override{
         if (p.getNome() > entrada){
             return 1;
         }

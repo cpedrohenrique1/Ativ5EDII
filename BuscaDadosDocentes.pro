@@ -23,9 +23,6 @@ HEADERS += \
     AbrirArquivo.h \
     BuscaMatricula.h \
     BuscaNome.h \
-    BuscaSequencial.h \
-    BuscaSequencialMatricula.h \
-    BuscaSequencialNome.h \
     OrdenarConjuntoDepartamentoNome.h \
     OrdenarConjuntoDepartamentoTipoContratoNome.h \
     OrdenarConjuntoDepartamentoTitulacaoNome.h \

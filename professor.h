@@ -12,8 +12,8 @@ private:
     QString tipo_de_contrato;
 public:
     Professor();
-    int getMatricula() const;
-    void setMatricula(int newMatricula);
+    const int &getMatricula() const;
+    void setMatricula(const int& newMatricula);
     const QString &getNome() const;
     void setNome(const QString &newNome);
     const QString &getDepartamento() const;

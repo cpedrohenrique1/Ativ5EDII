@@ -10,8 +10,7 @@
 class AbrirArquivo{
 public:
     AbrirArquivo(QWidget *parent, Professor **professor, int &tamanho_vetor){
-        QString endereco_arquivo = QFileDialog::getOpenFileName(parent, "Abrir Arquivo", QDir::homePath(), "*.csv");
-        QFile arquivo(endereco_arquivo);
+        QFile arquivo(QFileDialog::getOpenFileName(parent, "Abrir Arquivo", "/home/", "*.csv"));
         QTextStream in(&arquivo);
         if (!arquivo.open(QIODevice::ReadOnly))
         {

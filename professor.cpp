@@ -1,11 +1,11 @@
 #include "professor.h"
 
-int Professor::getMatricula() const
+const int &Professor::getMatricula() const
 {
     return matricula;
 }
 
-void Professor::setMatricula(int newMatricula)
+void Professor::setMatricula(const int& newMatricula)
 {
     matricula = newMatricula;
 }

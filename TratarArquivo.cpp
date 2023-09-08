@@ -1,37 +1,39 @@
 #include "TratarArquivo.h"
+#include "QFile"
+#include "QFileDialog"
+#include <list>
+#include <iostream>
+#include "QCoreApplication"
+#include "QDir"
 
 bool TratarArquivo::erro(QString &linha, QStringList &parts) const
 {
-    if ((linha.isEmpty() || linha.isNull()))
+    if ((linha.isEmpty() || linha.isNull()) || parts.size() != 5)
     {
         return true;
     }
-    if (parts.size() != 5)
-    {
-        return true;
-    }
-    int indice_part = 0;
+    bool indice_part = false;
     for (QString teste_error : parts)
     {
         if ((teste_error.isEmpty() || teste_error.isNull()))
         {
             return true;
         }
-        int letra = 0;
-        for (int i = 0; i < teste_error.size() && letra == 0; i++)
+        bool letra = false;
+        for (int i = 0; i < teste_error.size() && !letra; ++i)
         {
             if (teste_error[i] != ' ')
             {
-                ++letra;
+                letra = true;
             }
         }
-        if (letra == 0)
+        if (!letra)
         {
             return true;
         }
-        if (indice_part == 0)
+        if (!indice_part)
         {
-            for (int i = 0; i < teste_error.size(); i++)
+            for (int i = 0; i < teste_error.size(); ++i)
             {
                 if (teste_error[i] < '0' || teste_error[i] > '9')
                 {
@@ -39,9 +41,9 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
                 }
             }
         }
-        if (indice_part > 0)
+        if (indice_part)
         {
-            for (int i = 0; i < teste_error.size(); i++)
+            for (int i = 0; i < teste_error.size(); ++i)
             {
                 if (teste_error[i] >= '0' && teste_error[i] <= '9')
                 {
@@ -49,7 +51,9 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
                 }
             }
         }
-        ++indice_part;
+        if (!indice_part){
+            indice_part = true;
+        }
     }
     return false;
 }

@@ -26,7 +26,7 @@ void OperarTabela::limpar(QTableWidget *parent)
    start(parent);
 }
 
-void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *array_professor)
+void OperarTabela::popular(QTableWidget *parent, int& tamanho_vetor, Professor *array_professor)
 {
     if (!parent){
         throw QString("Tabela nao criada");
@@ -47,19 +47,16 @@ void OperarTabela::popular(QTableWidget *parent, int tamanho_vetor, Professor *a
     }
 }
 
-void OperarTabela::buscaElemento(QTableWidget *parent, Professor *professor){
+void OperarTabela::buscaElemento(QTableWidget *parent, Professor& professor){
     if (!parent){
         throw QString("Tabela nao criada");
-    }
-    if (!professor){
-        throw QString("Erro, elemento professor nao existe");
     }
     limpar(parent);
 
     parent->insertRow(0);
-    parent->setItem(0, 0, new QTableWidgetItem(QString::number(professor->getMatricula())));
-    parent->setItem(0, 1, new QTableWidgetItem(professor->getNome()));
-    parent->setItem(0, 2, new QTableWidgetItem(professor->getDepartamento()));
-    parent->setItem(0, 3, new QTableWidgetItem(professor->getTitulacao()));
-    parent->setItem(0, 4, new QTableWidgetItem(professor->getTipo_de_contrato()));
+    parent->setItem(0, 0, new QTableWidgetItem(QString::number(professor.getMatricula())));
+    parent->setItem(0, 1, new QTableWidgetItem(professor.getNome()));
+    parent->setItem(0, 2, new QTableWidgetItem(professor.getDepartamento()));
+    parent->setItem(0, 3, new QTableWidgetItem(professor.getTitulacao()));
+    parent->setItem(0, 4, new QTableWidgetItem(professor.getTipo_de_contrato()));
 }

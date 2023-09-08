@@ -5,8 +5,8 @@
 
 class OrdenarConjuntoMatricula : public Conjunto{
 public:
-    bool metodoOrdenacao(Professor p1, Professor p2) override{
-        return p1.getMatricula() < p2.getMatricula();
+    bool metodoOrdenacao(Professor* p1, Professor* p2) override{
+        return p1->getMatricula() < p2->getMatricula();
     }
 };
 

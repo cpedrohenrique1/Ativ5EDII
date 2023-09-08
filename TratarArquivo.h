@@ -2,13 +2,7 @@
 #define TRATARARQUIVO_H
 #include "professor.h"
 #include "QString"
-#include "QFile"
-#include "QFileDialog"
 #include "QTextStream"
-#include <list>
-#include <iostream>
-#include "QCoreApplication"
-#include "QDir"
 
 class TratarArquivo
 {

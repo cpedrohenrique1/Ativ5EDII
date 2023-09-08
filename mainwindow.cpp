@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "QMessageBox"
-#include <iostream>
 #include "operartabela.h"
 #include "AbrirArquivo.h"
 #include "buscardados.h"
@@ -31,10 +30,10 @@ void MainWindow::on_pushButton_executar_clicked()
 {
     try {
         QString input_dado = ui->lineEdit->text();
-        if (ui->lineEdit->text().isEmpty() || ui->lineEdit->text().isNull()){
+        if (input_dado.isEmpty() || input_dado.isNull()){
             Ordenacao ordem(ui->tableWidget, ui->comboBox_formaOrdenacao->currentText(), professor, tamanho_vetor);
         }else{
-            BuscarDados buscar_dados(ui->tableWidget, ui->comboBox_buscarDado->currentText(), professor, tamanho_vetor);
+            BuscarDados buscar_dados(ui->tableWidget, ui->comboBox_buscarDado->currentText(), input_dado, professor, tamanho_vetor);
         }
     } catch (QString &e) {
         QMessageBox::critical(this,"Erro", e);

@@ -1,6 +1,6 @@
 #include "busca.h"
 
-int Busca::BuscaSequencial(Professor *array, int tamanho_vetor, QString entrada){
+int Busca::BuscaSequencial(Professor *array, int& tamanho_vetor, QString& entrada){
     if (!array || tamanho_vetor == 0){
         throw QString("Array nao criado");
     }
@@ -15,7 +15,7 @@ int Busca::BuscaSequencial(Professor *array, int tamanho_vetor, QString entrada)
     return -1;
 }
 
-int Busca::BuscaBinaria(Professor *array, int tamanho_vetor, QString entrada){
+int Busca::BuscaBinaria(Professor *array, int& tamanho_vetor, QString& entrada){
     if (!array || tamanho_vetor == 0){
         throw QString("Array nao criado");
     }
