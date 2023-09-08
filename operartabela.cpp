@@ -12,7 +12,7 @@ void OperarTabela::start(QTableWidget *parent)
     parent->setColumnWidth(1, 250); // Nome
     parent->setColumnWidth(2, 100); // Departamento
     parent->setColumnWidth(3, 150); // Titulacao
-    parent->setColumnWidth(4, 150); // Tipo de contrato
+    parent->setColumnWidth(4, 130); // Tipo de contrato
     parent->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
