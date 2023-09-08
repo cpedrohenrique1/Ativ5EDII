@@ -19,15 +19,15 @@ bool TratarArquivo::erro(QString &linha, QStringList &parts) const
         {
             return true;
         }
-        bool letra = false;
-        for (int i = 0; i < teste_error.size() && !letra; ++i)
+        bool caracter = false;
+        for (int i = 0; i < teste_error.size() && !caracter; ++i)
         {
             if (teste_error[i] != ' ')
             {
-                letra = true;
+                caracter = true;
             }
         }
-        if (!letra)
+        if (!caracter)
         {
             return true;
         }

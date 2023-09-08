@@ -17,7 +17,7 @@ Professor *Conjunto::SelectionSort(Professor *array, int &tamanho_vetor)
         for (int indice = 0; indice < tamanho_vetor - 1; ++indice){
             int min_idc = indice;
             for (int i = indice + 1; i < tamanho_vetor; ++i){
-                if (metodoOrdenacao(&professorSelectionSort[i], &professorSelectionSort[min_idc])){
+                if (metodoOrdenacao(professorSelectionSort[i], professorSelectionSort[min_idc])){
                     min_idc = i;
                 }
             }

@@ -5,7 +5,7 @@
 #include "BuscaNome.h"
 #include "BuscaMatricula.h"
 
-BuscarDados::BuscarDados(QTableWidget *parent, QString current_text, QString entrada, Professor *array_professor, int &tamanho_vetor)
+BuscarDados::BuscarDados(QTableWidget *parent, QString current_text, QString& entrada, Professor *array_professor, int &tamanho_vetor)
 {
     if (!parent)
     {
@@ -15,7 +15,6 @@ BuscarDados::BuscarDados(QTableWidget *parent, QString current_text, QString ent
     {
         throw QString("Array professor nao criado");
     }
-    OperarTabela ot;
     Professor *temp(0);
     int indice = -1;
     if (current_text == "Busca Sequencial - Nome")
@@ -39,6 +38,7 @@ BuscarDados::BuscarDados(QTableWidget *parent, QString current_text, QString ent
         indice = BuscaMatricula().BuscaBinaria(temp, tamanho_vetor, entrada);
     }
 
+    OperarTabela ot;
     if (indice == -1){
         ot.limpar(parent);
     }
