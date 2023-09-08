@@ -30,7 +30,13 @@ void MainWindow::on_pushButton_executar_clicked()
 {
     try {
         QString input_dado = ui->lineEdit->text();
-        if (input_dado.isEmpty() || input_dado.isNull()){
+        bool letra = false;
+        for (int i = 0; i < input_dado.size(); ++i){
+            if (input_dado[i] != ' '){
+                letra = true;
+            }
+        }
+        if (input_dado.isEmpty() || input_dado.isNull() || !letra){
             Ordenacao ordem(ui->tableWidget, ui->comboBox_formaOrdenacao->currentText(), professor, tamanho_vetor);
         }else{
             BuscarDados buscar_dados(ui->tableWidget, ui->comboBox_buscarDado->currentText(), input_dado, professor, tamanho_vetor);
